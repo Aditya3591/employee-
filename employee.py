@@ -2,9 +2,7 @@ import random
  
 class Employee_wage():
  
-    def __init__(self):
-        self.attendacne=0
-
+    
     def check_attendance(self):
 
         attendance= random.choice(['present', 'absent'])
