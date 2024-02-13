@@ -23,15 +23,15 @@ class Employee_wage():
         emp_status = self.check_attendance()
         if emp_status == 'present':
             self.total_wage += self.wage_per_hour * self.full_hour
-            
+            self.total_hours_worked+=self.full_hour
         elif emp_status == 'halfday':
             self.total_wage += self.wage_per_hour * self.part_time
-            
+            self.total_hours_worked+=self.part_time
         
 
     def monthly_wage(self):
         
-        while self.total_days_worked < self.month_work_days:
+        while self.total_days_worked < self.month_work_days and self.total_hours_worked<self.monthly_target_hours:
             self.emplyoee_wage()
             self.total_days_worked += 1
     
@@ -40,5 +40,5 @@ class Employee_wage():
 emp1=Employee_wage()
 
 emp1.monthly_wage()
-print(f"Total wage: {emp1.total_wage}")
+print(f"Total wage is: {emp1.total_wage}\ntotal hours works is : {emp1.total_hours_worked}\ntotal days worked is : {emp1.total_days_worked}")
 
